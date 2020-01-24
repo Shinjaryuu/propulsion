@@ -1,3 +1,5 @@
+import sys
+
 
 def is_string(s):
     """Returns true if s is a string and false otherwise"""
@@ -74,6 +76,12 @@ def test_count_repetition():
     result = {'kerouac': 2,'fante': 3,'buk':2,'hemingway':1,'hornby':1}
     return count_repetition(testcase) == result
 
+def letter_counter(s):
+    """Returns the number of upper and lower case letters in s"""
+    upper_case_letters = [c for c in s if c.isupper()]
+    lower_case_letters = [c for c in s if c.islower()]
+    return len(upper_case_letters),len(lower_case_letters)
+
 print("Testing is_string(): {}".format(test_is_string()))
 print("Testing is_only_string(): {}".format(test_is_only_string()))
 print("Testing is_alphanumerc(): {}".format(test_is_alphanumeric()))
@@ -81,3 +89,8 @@ print("Testing are_same_type(): {}".format(test_are_same_type()))
 print("Testing intersection(): {}".format(test_intersection()))
 print("Testing convert(): {}".format(test_convert()))
 print("Testing count_repetition(): {}".format(test_count_repetition()))
+
+print("\n Showing output of letter_counter for the script input:\n")
+(upper,lower) = letter_counter(sys.argv[1])
+print("Number of upper case letters: {}".format(upper))
+print("Number of lower case letters: {}".format(lower))
