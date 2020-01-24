@@ -62,6 +62,17 @@ def test_convert():
         results = [[9,6,5,4,3,2],[4,3,2]]
         return all(convert(t)==r for (t,r) in zip(testcases,results))
 
+def count_repetition(l):
+    """Counts number of repitions of each string in l"""
+    counts = {}
+    for s in l:
+        counts[s] = counts.get(s,0) + 1
+    return counts
+
+def test_count_repetition():
+    testcase =  ['kerouac', 'fante', 'fante', 'buk', 'hemingway', 'hornby', 'kerouac', 'buk', 'fante']
+    result = {'kerouac': 2,'fante': 3,'buk':2,'hemingway':1,'hornby':1}
+    return count_repetition(testcase) == result
 
 print("Testing is_string(): {}".format(test_is_string()))
 print("Testing is_only_string(): {}".format(test_is_only_string()))
@@ -69,3 +80,4 @@ print("Testing is_alphanumerc(): {}".format(test_is_alphanumeric()))
 print("Testing are_same_type(): {}".format(test_are_same_type()))
 print("Testing intersection(): {}".format(test_intersection()))
 print("Testing convert(): {}".format(test_convert()))
+print("Testing count_repetition(): {}".format(test_count_repetition()))
