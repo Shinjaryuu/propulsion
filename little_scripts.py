@@ -1,4 +1,5 @@
 import sys
+import itertools
 
 
 def is_string(s):
@@ -82,6 +83,10 @@ def letter_counter(s):
     lower_case_letters = [c for c in s if c.islower()]
     return len(upper_case_letters),len(lower_case_letters)
 
+def permute(l):
+    """Returns a list of all permutations"""
+    return list(itertools.permutations(l))
+
 print("Testing is_string(): {}".format(test_is_string()))
 print("Testing is_only_string(): {}".format(test_is_only_string()))
 print("Testing is_alphanumerc(): {}".format(test_is_alphanumeric()))
@@ -94,3 +99,5 @@ print("\n Showing output of letter_counter for the script input:\n")
 (upper,lower) = letter_counter(sys.argv[1])
 print("Number of upper case letters: {}".format(upper))
 print("Number of lower case letters: {}".format(lower))
+
+print("\nOutput of permute([1,2,3]): {}".format(permute([1,2,3])))
